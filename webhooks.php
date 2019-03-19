@@ -6,6 +6,7 @@ $access_token = 'KfgW9rzbqNRUjan4k799l9tGNsEoAkt9eZV+mgCz4ly+u/mJgGSyEPsFFI7+MvD
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
+if($content=="ขอรหัส"){
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -43,3 +44,4 @@ echo $result . "\r\n";
 }
 }
 echo "OK";
+  }
