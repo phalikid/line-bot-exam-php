@@ -5,6 +5,15 @@ $access_token = 'KfgW9rzbqNRUjan4k799l9tGNsEoAkt9eZV+mgCz4ly+u/mJgGSyEPsFFI7+MvD
 
 // Get POST body content
 $content = file_get_contents('php://input');
+
+$arrayJson = json_decode($content, true);
+$arrayHeader = array();
+$arrayHeader[] = "Content-Type: application/json";
+$arrayHeader[] = "Authorization: Bearer {$access_token}";
+//รับข้อความจากผู้ใช้
+$message = $arrayJson['events'][0]['message']['text'];
+
+if($message=="ขอรหัส"){
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
@@ -44,3 +53,4 @@ echo $content."\r\n";
 }
 }
 echo "OK";
+}
