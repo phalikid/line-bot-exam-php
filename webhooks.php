@@ -6,7 +6,6 @@ $access_token = 'KfgW9rzbqNRUjan4k799l9tGNsEoAkt9eZV+mgCz4ly+u/mJgGSyEPsFFI7+MvD
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
-if($content=="ขอรหัส"){
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -39,9 +38,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
-echo $result . "\r\n";
+echo $result $content . "\r\n";
 }
 }
 }
 echo "OK";
-  }
