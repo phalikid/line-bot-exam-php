@@ -13,7 +13,7 @@ $arrayHeader[] = "Authorization: Bearer {$access_token}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-if($message=="ขอรหัส"){
+if($message=="id"){
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
