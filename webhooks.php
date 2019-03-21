@@ -54,5 +54,5 @@ echo $result. "\r\n";
 echo "OK";
 }
 if($message=="reg"){
-echo "https://psis.in.th/reg_linebot.php?idpush= \r\n";
+echo "kkkkkkk \n";
 }
