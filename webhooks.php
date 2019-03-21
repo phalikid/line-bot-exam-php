@@ -54,5 +54,5 @@ echo $result. "\r\n";
 echo "OK";
 }
 if($message=="reg"){
-echo "kkkkkkk \n";
+echo $result. "\r\n";
 }
