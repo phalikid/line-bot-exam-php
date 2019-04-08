@@ -23,7 +23,7 @@ foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
-$text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']."&idaccess=".$access_token." ";
+$text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']."";
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
