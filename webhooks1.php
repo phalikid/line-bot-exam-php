@@ -48,11 +48,32 @@ curl_close($ch);
 echo $result. "\r\n";
 }
 if($message=="0"){
-	echo "สวัสดีครับ <br>";
-	echo "พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>";
-	echo "พิมพ์ 2 : ตรวจผลการเรียน <br>";	
-	echo "พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>";
-	echo "พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>";
+	// Get text sent
+	$text = "สวัสดีครับ <br>พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>พิมพ์ 2 : ตรวจผลการเรียน <br>พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>";
+	// Get replyToken
+	$replyToken = $event['replyToken'];
+	// Build message to reply back
+	$messages = [
+	'type' => 'text',
+	'text' => $text
+	];
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/reply';
+	$data = [
+	'replyToken' => $replyToken,
+	'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	echo $result. "\r\n";
 }
 }
 }
