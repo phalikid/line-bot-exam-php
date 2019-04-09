@@ -10,7 +10,6 @@ $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$access_token}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
-if($message=="id"){
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
@@ -19,6 +18,8 @@ if (!is_null($events['events'])) {
 foreach ($events['events'] as $event) {
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+	
+if($message=="id"){
 // Get text sent
 $text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']."&idaccess=".$access_token." ";
 // Get replyToken
@@ -46,13 +47,12 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result. "\r\n";
 }
-}
-}
-echo "OK";
 }elseif($message=="0"){
 	echo "สวัสดีครับ <br>";
 	echo "พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>";
 	echo "พิมพ์ 2 : ตรวจผลการเรียน <br>";	
 	echo "พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>";
 	echo "พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>";
+}
+}
 }
