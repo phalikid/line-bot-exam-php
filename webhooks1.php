@@ -49,13 +49,13 @@ echo $result. "\r\n";
 }
 if($message=="0"){
 	// Get text sent
-	$text = "สวัสดีครับ <br>พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>พิมพ์ 2 : ตรวจผลการเรียน <br>พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>";
+	$text = "<br>พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>พิมพ์ 2 : ตรวจผลการเรียน <br>พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>";
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => $text
+	'text' => "<br>พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>พิมพ์ 2 : ตรวจผลการเรียน <br>พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>" 
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
