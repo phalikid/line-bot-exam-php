@@ -47,23 +47,97 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result. "\r\n";
 }
-if($message=="0"){
+if($message=="1"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน",
-	];
-	$messages2 = [
-	'type' => 'text',
-	'text' => "พิมพ์ 2 : ตรวจผลการเรียน",
+	'text' => "http://www.psis.in.th/report_print/std_detail.php?idpush=".$event['source']['userId']."",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
 	'replyToken' => $replyToken,
-	'messages' => [$messages],[$messages2]
+	'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	echo $result. "\r\n";
+}
+if($message=="2"){
+	// Get replyToken
+	$replyToken = $event['replyToken'];
+	// Build message to reply back
+	$messages = [
+	'type' => 'text',
+	'text' => "http://www.psis.in.th/report_print/std_Tting.php?idpush=".$event['source']['userId']."",
+	];
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/reply';
+	$data = [
+	'replyToken' => $replyToken,
+	'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	echo $result. "\r\n";
+}
+if($message=="3"){
+	// Get replyToken
+	$replyToken = $event['replyToken'];
+	// Build message to reply back
+	$messages = [
+	'type' => 'text',
+	'text' => "เบอร์โทรโรงเรียน 044-081071",
+	];
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/reply';
+	$data = [
+	'replyToken' => $replyToken,
+	'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	echo $result. "\r\n";
+}
+if($message=="4"){
+	// Get replyToken
+	$replyToken = $event['replyToken'];
+	// Build message to reply back
+	$messages = [
+	'type' => 'text',
+	'text' => "เว็บไซต์โรงเรียน http://www.nyp.ac.th",
+	];
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/reply';
+	$data = [
+	'replyToken' => $replyToken,
+	'messages' => [$messages],
 	];
 	$post = json_encode($data);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
