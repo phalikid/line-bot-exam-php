@@ -49,8 +49,7 @@ echo $result. "\r\n";
 }
 }
 echo "OK";
-}
-if($message=="0"){
+}elseif($message=="0"){
 	echo "สวัสดีครับ <br>";
 	echo "พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>";
 	echo "พิมพ์ 2 : ตรวจผลการเรียน <br>";	
