@@ -46,13 +46,13 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 echo $result. "\r\n";
-}
 }elseif($message=="0"){
 	echo "สวัสดีครับ <br>";
 	echo "พิมพ์ 1 : ตรวจสอบข้อมูลมาเรียน <br>";
 	echo "พิมพ์ 2 : ตรวจผลการเรียน <br>";	
 	echo "พิมพ์ 3 : เข้าเว็บไซต์โรงเรียน <br>";
 	echo "พิมพ์ 4 : เบอร์โทรติดต่อโรงเรียน <br>";
+}
 }
 }
 }
