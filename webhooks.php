@@ -24,7 +24,7 @@ foreach ($events['events'] as $event) {
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 if(trim($message)=="id"){
 // Get text sent
-$text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']."&idaccess=".$access_token." ";
+$text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']." ";
 // Get replyToken
 $replyToken = $event['replyToken'];
 // Build message to reply back
