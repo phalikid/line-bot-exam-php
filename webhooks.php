@@ -50,7 +50,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result. "\r\n";
 }
-if($message=="1"){
+if(trim($message)=="1"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -76,7 +76,7 @@ if($message=="1"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if($message=="2"){
+if(trim($message)=="2"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -102,7 +102,7 @@ if($message=="2"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if($message=="3"){
+if(trim($message)=="3"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -128,7 +128,7 @@ if($message=="3"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if($message=="4"){
+if(trim($message)=="4"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -154,7 +154,7 @@ if($message=="4"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if($message=="5"){
+if(trim($message)=="5"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
