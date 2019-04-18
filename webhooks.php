@@ -160,7 +160,7 @@ if($message=="5"){
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "กรุณาคลิกเพื่อเข้าติดต่อ https://www.facebook.com/wearenyp/inbox",
+	'text' => "กรุณาคลิกเพื่อเข้าติดต่อ http://m.me/wearenyp",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
