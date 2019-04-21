@@ -56,7 +56,7 @@ if(trim($message)=="1"){
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "http://www.psis.in.th/report_print/std_detail.php?idpush=".$event['source']['userId']."",
+	'text' => "http://www.psis.in.th/report_print/std_ma.php?idpush=".$event['source']['userId']."",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
@@ -82,7 +82,7 @@ if(trim($message)=="2"){
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "http://www.psis.in.th/report_print/std_Ttest.php?idpush=".$event['source']['userId']."",
+	'text' => "http://www.psis.in.th/report_print/std_detail.php?idpush=".$event['source']['userId']."",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
@@ -108,7 +108,7 @@ if(trim($message)=="3"){
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "เบอร์โทรโรงเรียน 044-081071",
+	'text' => "http://www.psis.in.th/report_print/std_Ttest.php?idpush=".$event['source']['userId']."",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
@@ -134,7 +134,7 @@ if(trim($message)=="4"){
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "เว็บไซต์โรงเรียน http://www.nyp.ac.th",
+	'text' => "เบอร์โทรศัพท์ภายใน 044-081071 ติดต่อช่วงเวลาทำการนะครับ",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
@@ -160,7 +160,7 @@ if(trim($message)=="5"){
 	// Build message to reply back
 	$messages = [
 	'type' => 'text',
-	'text' => "กรุณาคลิกเพื่อเข้าติดต่อ http://m.me/wearenyp",
+	'text' => "คลิ๊กเพื่อเข้าเว็บไซต์โรงเรียน  http://www.nyp.ac.th",
 	];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
