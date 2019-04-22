@@ -51,7 +51,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result. "\r\n";
 }
-if(trim($message)=="std"){
+if(trim($message)=="sid"){
 	// Get text sent
 	$text = "http://psis.in.th/reg_linebot2.php?idpush=".$event['source']['userId']." ";
 	// Get replyToken
