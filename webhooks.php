@@ -79,7 +79,7 @@ if(trim($message)=="sid"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if(trim($message)=="1"){
+if(trim($message)=="รายงานการสแกนบัตร"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -105,7 +105,7 @@ if(trim($message)=="1"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if(trim($message)=="2"){
+if(trim($message)=="ตรวจพฤติกรรมนักเรียน"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -131,7 +131,7 @@ if(trim($message)=="2"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if(trim($message)=="3"){
+if(trim($message)=="สอบถามผลการเรียน"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -157,7 +157,7 @@ if(trim($message)=="3"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if(trim($message)=="4"){
+if(trim($message)=="เบอร์โทร์ติดต่อ"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -183,7 +183,7 @@ if(trim($message)=="4"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
-if(trim($message)=="5"){
+if(trim($message)=="เว็บไซต์โรงเรียน"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -209,6 +209,33 @@ if(trim($message)=="5"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
+if(trim($message)=="ติดต่อผู้ดูแลระบบ"){
+	// Get replyToken
+	$replyToken = $event['replyToken'];
+	// Build message to reply back
+	$messages = [
+	'type' => 'text',
+	'text' => "คลิ๊กเพื่อเข้าเว็บไซต์โรงเรียน  http://www.nyp.ac.th",
+	];
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/reply';
+	$data = [
+	'replyToken' => $replyToken,
+	'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	echo $result. "\r\n";
+}	
+	
 }
 }
 }
