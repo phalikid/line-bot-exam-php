@@ -5,11 +5,11 @@ $access_token = '0HUfhEpwxhQlLcnvwXZilBCEOq3BJU2ZrodN/ltYlm+dCVNo7splyhLElpeIJww
 
 // Get POST body content
 $content = file_get_contents('php://input');
-
 $arrayJson = json_decode($content, true);
 $arrayHeader = array();
 $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$access_token}";
+
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
@@ -20,9 +20,9 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 // Loop through each event
 foreach ($events['events'] as $event) {
+
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-	
 if(trim($message)=="id"){
 // Get text sent
 $text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']." ";
@@ -83,10 +83,25 @@ if(trim($message)=="รายงานการสแกนบัตร"){
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
-	$messages = [
-	'type' => 'text',
-	'text' => "http://www.psis.in.th/report_print/std_ma.php?idpush=".$event['source']['userId']."",
-	];
+	$messages =  [
+    {
+      "type": "flex",
+      "altText": "This is a Flex Message",
+      "contents": {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Hello,"
+            },
+            {
+              "type": "text",
+              "text": "World!"
+            }
+          ];
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
@@ -209,9 +224,9 @@ if(trim($message)=="เว็บไซต์โรงเรียน"){
 	curl_close($ch);
 	echo $result. "\r\n";
 }
+}//end 'text' format
 
 	
-}
 }
 }
 
