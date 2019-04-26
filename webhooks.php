@@ -8,41 +8,43 @@
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+
+    //รับ id ของผู้ใช้
+    $id = $arrayJson['events'][0]['source']['userId'];
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 
 
 if(trim($message)=="id"){
-	$text = "http://psis.in.th/reg_linebot.php?idpush=".$event['source']['userId']." ";
+	$text = "http://psis.in.th/reg_linebot.php?idpush=".$id." ";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
 }else
 if(trim($message)=="sid"){
-	$text = "http://psis.in.th/reg_linebot2.php?idpush=".$event['source']['userId']." ";
+	$text = "http://psis.in.th/reg_linebot2.php?idpush=".$id." ";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
 }else
 if(trim($message)=="รายงานการสแกนบัตร"){
-	$text = "http://www.psis.in.th/report_print/std_ma.php?idpush=".$event['source']['userId']."";
+	$text = "http://www.psis.in.th/report_print/std_ma.php?idpush=".$id."";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
 }else
 if(trim($message)=="ตรวจพฤติกรรมนักเรียน"){
-	$text = "http://www.psis.in.th/report_print/std_detail.php?idpush=".$event['source']['userId']."";
+	$text = "http://www.psis.in.th/report_print/std_detail.php?idpush=".$id."";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);	
 }else
 if(trim($message)=="สอบถามผลการเรียน"){
-	$text = "http://www.psis.in.th/report_print/std_Ttest.php?idpush=".$event['source']['userId']."";
+	$text = "http://www.psis.in.th/report_print/std_Ttest.php?idpush=".$id."";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
