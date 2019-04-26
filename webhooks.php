@@ -14,50 +14,43 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 
-
 if(trim($message)=="id"){
 	$text = "http://psis.in.th/reg_linebot.php?idpush=".$id." ";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
-}else
-if(trim($message)=="sid"){
+}elseif(trim($message)=="sid"){
 	$text = "http://psis.in.th/reg_linebot2.php?idpush=".$id." ";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
-}else
-if(trim($message)=="รายงานการสแกนบัตร"){
+}elseif(trim($message)=="รายงานการสแกนบัตร"){
 	$text = "http://www.psis.in.th/report_print/std_ma.php?idpush=".$id."";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
-}else
-if(trim($message)=="ตรวจพฤติกรรมนักเรียน"){
+}elseif(trim($message)=="ตรวจพฤติกรรมนักเรียน"){
 	$text = "http://www.psis.in.th/report_print/std_detail.php?idpush=".$id."";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);	
-}else
-if(trim($message)=="สอบถามผลการเรียน"){
+}elseif(trim($message)=="สอบถามผลการเรียน"){
 	$text = "http://www.psis.in.th/report_print/std_Ttest.php?idpush=".$id."";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);		
-}else
-if(trim($message)=="เบอร์โทรติดต่อ"){
+}elseif(trim($message)=="เบอร์โทรติดต่อ"){
 	$text = "เบอร์โทรศัพท์ภายใน 044-081071 ติดต่อช่วงเวลาทำการนะครับ";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);	
-}else
-if(trim($message)=="เว็บไซต์โรงเรียน"){
+}elseif(trim($message)=="เว็บไซต์โรงเรียน"){
 	$text = "คลิ๊กเพื่อเข้าเว็บไซต์โรงเรียน  http://www.nyp.ac.th";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
