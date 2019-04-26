@@ -48,7 +48,7 @@ if(trim($message)=="สอบถามผลการเรียน"){
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);		
 }else
-if(trim($message)=="เบอร์โทร์ติดต่อ"){
+if(trim($message)=="เบอร์โทรติดต่อ"){
 	$text = "เบอร์โทรศัพท์ภายใน 044-081071 ติดต่อช่วงเวลาทำการนะครับ";
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
