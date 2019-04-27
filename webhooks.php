@@ -58,7 +58,7 @@ if(trim($message)=="id"){
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
-}else{
+}elseif(trim($message)=="2"){
 	$textReplyMessage = new BubbleContainerBuilder(
 	    "ltr",  // กำหนด NULL หรือ "ltr" หรือ "rtl"
 	    new BoxComponentBuilder(
