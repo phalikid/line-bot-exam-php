@@ -1,5 +1,5 @@
 <?php 
-
+require "vendor/autoload.php";
     $accessToken = "0HUfhEpwxhQlLcnvwXZilBCEOq3BJU2ZrodN/ltYlm+dCVNo7splyhLElpeIJwwPLyb+WaU7rCU1JQj1EH8Qi0zbiH3f500hFIli4iad1jxiyh2jqTHctdU0Fq4yYVG/XPsxQB5J1GfXpcSYpQFiVQdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     
     $content = file_get_contents('php://input');
@@ -58,6 +58,37 @@ if(trim($message)=="id"){
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $text;
         replyMsg($arrayHeader,$arrayPostData);
+}else{
+	$textReplyMessage = new BubbleContainerBuilder(
+	    "ltr",  // กำหนด NULL หรือ "ltr" หรือ "rtl"
+	    new BoxComponentBuilder(
+		"vertical",
+		array(
+		    new TextComponentBuilder("This is Header")
+		)
+	    ),
+	    new ImageComponentBuilder(
+		"https://www.ninenik.com/images/ninenik_page_logo.png",NULL,NULL,NULL,NULL,"full","20:13","cover"),
+	    new BoxComponentBuilder(
+		"vertical",
+		array(
+		    new TextComponentBuilder("This is Body")
+		)
+	    ),
+	    new BoxComponentBuilder(
+		"vertical",
+		array(
+		    new TextComponentBuilder("This is Footer")
+		)
+	    ),
+	    new BubbleStylesBuilder( // style ทั้งหมดของ bubble
+		new BlockStyleBuilder("#FFC90E"),  // style สำหรับ header block
+		new BlockStyleBuilder("#EFE4B0"), // style สำหรับ hero block
+		new BlockStyleBuilder("#B5E61D"), // style สำหรับ body block
+		new BlockStyleBuilder("#FFF200") // style สำหรับ footer block
+	    )
+	);
+	$replyData = new FlexMessageBuilder("Flex",$textReplyMessage);
 }
 
 function replyMsg($arrayHeader,$arrayPostData){
