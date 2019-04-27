@@ -89,6 +89,7 @@ if(trim($message)=="id"){
 	    )
 	);
 	$replyData = new FlexMessageBuilder("Flex",$textReplyMessage);
+	replyMsg($arrayHeader,$replyData);
 }
 
 function replyMsg($arrayHeader,$arrayPostData){
